@@ -24,22 +24,22 @@ namespace cp {
     public:
         Shape( cpShape* shape );
         
-		void setFriction( float friction );
-		void setElasticity( float elasticity );
-		void setCollisionType( cpCollisionType collisionType );
+	void setFriction( float friction );
+	void setElasticity( float elasticity );
+	void setCollisionType( cpCollisionType collisionType );
 		
         void setBody( Body body );
         Body getBody() const;
         
-		void* getUserData() const;
-		void setUserData( void* userData );
+	void* getUserData() const;
+	void setUserData( void* userData );
         
         cpShape* getCpShape() const;
-		operator cpShape*() const;
+	operator cpShape*() const;
         
     protected:
         Shape();
-		Shape( Body body, cpShape* shape );
+	Shape( Body body, cpShape* shape );
         
         struct Obj {
             Obj();
@@ -78,12 +78,12 @@ namespace cp {
     
     class PolyShape : public Shape {
     public:
-		PolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
+	PolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
     };
     
     class SegmentShape : public Shape {
     public:
-		SegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
+	SegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
     };
     
     
@@ -93,21 +93,21 @@ namespace cp {
         Body( ci::Vec2f position, float mass = 1.0f, float moment = 1.0f );
         Body( cpBody* body );
         
-		ci::Vec2f getPosition() const;
-		void setPosition( ci::Vec2f position );
+	ci::Vec2f getPosition() const;
+	void setPosition( ci::Vec2f position );
         void setAngle( float angle );
         
-		ci::Vec2f getVelocity() const;
-		void setVelocity( ci::Vec2f velocity);
+	ci::Vec2f getVelocity() const;
+	void setVelocity( ci::Vec2f velocity);
         
         void setMass( float mass );
         void setMoment( float moment );
         
-		void* getUserData() const;
-		void setUserData( void* );
+	void* getUserData() const;
+	void setUserData( void* );
         
         cpBody* getCpBody();
-		operator cpBody*() const;
+	operator cpBody*() const;
         
         void resetForces();
         void applyForce( ci::Vec2f force, ci::Vec2f point );
@@ -145,7 +145,7 @@ namespace cp {
         Constraint( cpConstraint* constraint );
         
         cpConstraint* getCpConstraint() const;
-		operator cpConstraint*() const;
+	operator cpConstraint*() const;
         
     protected:
         Constraint();
@@ -258,16 +258,16 @@ namespace cp {
         CircleShape     addCircleShape( Body body, float radius, ci::Vec2f offset = ci::Vec2f::zero() );
         BoxShape        addBoxShape( Body body, float width, float height );
         BoxShape        addBoxShape( Body body, ci::Rectf rectangle );
-		PolyShape       addPolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
-		SegmentShape    addSegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
+	PolyShape       addPolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
+	SegmentShape    addSegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
         
         void addStaticShape( const Shape &shape );
         
         CircleShape     addStaticCircleShape( Body body, float radius, ci::Vec2f offset = ci::Vec2f::zero() );
         BoxShape        addStaticBoxShape( Body body, float width, float height );
         BoxShape        addStaticBoxShape( Body body, ci::Rectf rectangle );
-		PolyShape       addStaticPolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
-		SegmentShape    addStaticSegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
+	PolyShape       addStaticPolyShape( Body body, const std::vector<ci::Vec2f>& vertices, ci::Vec2f offset = ci::Vec2f::zero() );
+	SegmentShape    addStaticSegmentShape( Body body, ci::Vec2f a, ci::Vec2f b, float radius = 1.0f );
         
         void addBody( Body &body );
         Body addBody( float mass = 1.0f, float moment = 1.0f );
@@ -301,7 +301,7 @@ namespace cp {
         inline ci::Vec2f worldToLocal( ci::Vec2f world );
         
         cpSpace* getCpSpace() const;
-		operator cpSpace*() const;
+	operator cpSpace*() const;
     protected:
         struct Obj {
             Obj();
@@ -311,8 +311,8 @@ namespace cp {
         };
 	
         std::shared_ptr< Obj >      mObj;
-		std::vector< Shape >        mShapes;
-		std::vector< Body >         mBodies;
+	std::vector< Shape >        mShapes;
+	std::vector< Body >         mBodies;
         std::vector< Constraint >   mConstraints;
 
     public:
